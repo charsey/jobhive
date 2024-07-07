@@ -6,6 +6,7 @@ use App\Http\Controllers\Socialite\Googleauth;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Applicants\ApplicantsInfoController;
 use App\Http\Controllers\Applicants\ApplicantsEducationController;
+use App\Http\Controllers\Applicants\ApplicantsExperienceController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\LogoutController;
 
@@ -17,10 +18,12 @@ Route::post('step2',[ApplicantsEducationController::class,'applicants_edu']);
 
 Route::get('upload-resume', [IndexController::class,'applicants_info']);
 Route::get('upload-education', [IndexController::class,'applicants_edu']);
-Route::get('upload-skills', [IndexController::class,'applicants_skills']);
+Route::get('work-experience', [IndexController::class,'applicants_experience']);
 Route::get('profile', [IndexController::class, 'profile_settings'])->middleware(['auth', 'verified'])->name('dashboard');
 Route::post('step1', [ApplicantsInfoController::class, 'saveone']);
-
+// Applicantsexperience
+Route::POST('step3',[ApplicantsExperienceController::class,'save']);
+// Applicantsexperience end
 // logout
 Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
 // endlogout

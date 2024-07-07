@@ -90,8 +90,13 @@
                     <div class="col-5 col-sm-4">
                       <select name="studied_from_year" class="form-select form-select-lg" required>
                         <option value="" disabled>Year</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2026") selected @endif @endif>2026</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2025") selected @endif @endif>2025</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2024") selected @endif @endif>2024</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2023") selected @endif @endif>2023</option>
+                        <option value="2022" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2022") selected @endif @endif>2022</option>
                         <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2021") selected @endif @endif>2021</option>
-                        <option value="2020" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2021") selected @endif @endif>2020</option>
+                        <option value="2020" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2020") selected @endif @endif>2020</option>
                         <option value="2019" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2019") selected @endif @endif>2019</option>
                         <option value="2018" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2018") selected @endif @endif>2018</option>
                         <option value="2017" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2017") selected @endif @endif>2017</option>
@@ -129,18 +134,23 @@
                     <div class="col-5 col-sm-4">
                       <select name="studied_to_year" class="form-select form-select-lg" required>
                       <option value="" disabled>Year</option>
-                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2021") selected @endif @endif>2021</option>
-                        <option value="2020" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2021") selected @endif @endif>2020</option>
-                        <option value="2019" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2019") selected @endif @endif>2019</option>
-                        <option value="2018" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2018") selected @endif @endif>2018</option>
-                        <option value="2017" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2017") selected @endif @endif>2017</option>
-                        <option value="2016" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2016") selected @endif @endif>2016</option>
-                        <option value="2015" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2015") selected @endif @endif>2015</option>
-                        <option value="2014" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2014") selected @endif @endif>2014</option>
-                        <option value="2013" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2013") selected @endif @endif>2013</option>
-                        <option value="2012" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2012") selected @endif @endif>2012</option>
-                        <option value="2011" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2011") selected @endif @endif>2011</option>
-                        <option value="2010" @if(isset($applicantEdu)) @if($applicantEdu->studied_to_year  =="2010") selected @endif @endif>2010</option>
+                      <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2026") selected @endif @endif>2026</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2025") selected @endif @endif>2025</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2024") selected @endif @endif>2024</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2023") selected @endif @endif>2023</option>
+                        <option value="2022" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2022") selected @endif @endif>2022</option>
+                        <option value="2021" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2021") selected @endif @endif>2021</option>
+                        <option value="2020" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2020") selected @endif @endif>2020</option>
+                        <option value="2019" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2019") selected @endif @endif>2019</option>
+                        <option value="2018" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2018") selected @endif @endif>2018</option>
+                        <option value="2017" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2017") selected @endif @endif>2017</option>
+                        <option value="2016" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2016") selected @endif @endif>2016</option>
+                        <option value="2015" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2015") selected @endif @endif>2015</option>
+                        <option value="2014" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2014") selected @endif @endif>2014</option>
+                        <option value="2013" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2013") selected @endif @endif>2013</option>
+                        <option value="2012" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2012") selected @endif @endif>2012</option>
+                        <option value="2011" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2011") selected @endif @endif>2011</option>
+                        <option value="2010" @if(isset($applicantEdu)) @if($applicantEdu->studied_from_year  =="2010") selected @endif @endif>2010</option>
                        </select>
                       </div>
                   </div>
@@ -149,7 +159,7 @@
             </div>
 
             <!-- Navigation-->
-            <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"><button class="btn btn-outline-primary btn-lg rounded-pill mb-3 mb-sm-0" ><i class="fi-chevron-left fs-sm me-2"></i>Previous step</button> <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto">Next step<i class="fi-chevron-right fs-sm ms-2"></i></button></div>
+            <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"><a href="upload-resume" class="btn btn-outline-primary btn-lg rounded-pill mb-3 mb-sm-0" ><i class="fi-chevron-left fs-sm me-2"></i>Previous step</a> <button class="btn btn-primary btn-lg rounded-pill ms-sm-auto">Next step<i class="fi-chevron-right fs-sm ms-2"></i></button></div>
           </div>
 
         </div>

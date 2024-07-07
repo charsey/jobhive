@@ -15,13 +15,16 @@ return new class extends Migration
         Schema::create('applicants_experiences', function (Blueprint $table) {
             $table->id();
             $table->foreignIdFor(User::class)->constrained()->onDelete('cascade');
+            $table->string('job_tittle');
             $table->string('company_name');
             $table->string('activity_field');
             $table->string('country');
-            $table->string('worked_from');
-            $table->string('worked_to');
+            $table->string('city');
+            $table->string('worked_from_month');
+            $table->string('worked_from_year');
+            $table->string('worked_to_month');
+            $table->string('worked_to_year');
             $table->longText('job_description');
-
             $table->timestamps();
         });
     }

@@ -38,107 +38,279 @@
                 </div>
               </div>
             </div>
+
+            <form  id="myForm" action="step3" method="POST">
+              @csrf
             <!-- Step 3: Work Experience-->
             <div class="bg-light rounded-3 p-4 p-md-5 mb-3">
               <h2 class="h4 mb-4"><i class="fi-briefcase text-primary fs-5 mt-n1 me-2 pe-1"></i>Work experience</h2>
-              <div class="alert alert-info mb-4" role="alert">
-                <div class="d-flex"><i class="fi-alert-circle me-2 me-sm-3"></i>
-                  <p class="fs-sm mb-1">Filling out 2 or more work experiences will double your chances of being contacted by an employer.</p>
-                </div>
-              </div>
-              <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" id="no-experience">
-                <label class="form-check-label" for="no-experience">I don't have any work experience yet</label>
-              </div>
+    
               <label class="form-label" for="pr-title">Job title <span class='text-danger'>*</span></label>
-              <input class="form-control form-control-lg mb-4" type="text" id="pr-title" placeholder="Enter job title" required>
+              <input class="form-control form-control-lg mb-4" value="@if(isset($applicantExp)){{$applicantExp->job_tittle}}@endif" name="job_tittle" type="text" id="pr-title" placeholder="Enter job title" required>
               <div class="row">
                 <div class="col-sm-6 mb-4">
                   <label class="form-label" for="pr-company">Company name <span class='text-danger'>*</span></label>
-                  <input class="form-control form-control-lg" type="text" id="pr-company" placeholder="Enter company name" required>
+                  <input class="form-control form-control-lg" name="company_name" value="@if(isset($applicantExp)){{$applicantExp->company_name}}@endif" type="text" id="pr-company" placeholder="Enter company name" required>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label class="form-label" for="pr-activity">Field of activity <span class='text-danger'>*</span></label>
-                  <select class="form-select form-select-lg" id="pr-activity" required>
-                    <option value="" disabled selected>Choose field</option>
-                    <option value="Accounting">Accounting</option>
-                    <option value="Marketing &amp; PR">Marketing &amp; PR</option>
-                    <option value="Medicine">Medicine</option>
-                    <option value="Agriculture">Agriculture</option>
-                    <option value="Internet technology">Internet technology</option>
-                    <option value="Security">Security</option>
-                    <option value="Management">Management</option>
-                    <option value="HoReCa">HoReCa</option>
-                    <option value="Insurance">Insurance</option>
+                  <select name="activity_field" class="form-select form-select-lg" id="pr-activity" required>
+                    <option value="" disabled >Choose field</option>
+                    <option value="accounting" @if(isset($applicantExp) && $applicantExp->activity_field == "accounting") selected @endif>Accounting</option>
+                    <option value="marketing" @if(isset($applicantExp) && $applicantExp->activity_field == "accounting") selected @endif>Marketing &amp; PR</option>
+                    <option value="medicine" @if(isset($applicantExp) && $applicantExp->activity_field == "medicine") selected @endif>Medicine</option>
+                    <option value="agriculture" @if(isset($applicantExp) && $applicantExp->activity_field == "agriculture") selected @endif>Agriculture</option>
+                    <option value="internet technology" @if(isset($applicantExp) && $applicantExp->activity_field == "internet technology") selected @endif>Internet technology</option>
+                    <option value="security" @if(isset($applicantExp) && $applicantExp->activity_field == "security") selected @endif>Security</option>
+                    <option value="management" @if(isset($applicantExp) && $applicantExp->activity_field == "management") selected @endif>Management</option>
+                    <option value="HoReCa" @if(isset($applicantExp) && $applicantExp->activity_field == "HoReCa") selected @endif>HoReCa</option>
+                    <option value="insurance" @if(isset($applicantExp) && $applicantExp->activity_field == "insurance") selected @endif>Insurance</option>
                   </select>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label class="form-label" for="pr-country">Country</label>
-                  <select class="form-select form-select-lg" id="pr-country">
+                  <select name="country"  class="form-select form-select-lg" id="pr-country">
                     <option value="" disabled selected>Choose country</option>
-                    <option value="Australia">Australia</option>
-                    <option value="Belgium">Belgium</option>
-                    <option value="Canada">Canada</option>
-                    <option value="China">China</option>
-                    <option value="Denmark">Denmark</option>
-                    <option value="France">France</option>
-                    <option value="Germany">Germany</option>
-                    <option value="Japan">Japan</option>
-                    <option value="UK">UK</option>
-                    <option value="USA">USA</option>
+                    <option value="afghanistan" @if(isset($applicantExp) && $applicantExp->country == "afghanistan") selected @endif>Afghanistan</option>
+<option value="albania" @if(isset($applicantExp) && $applicantExp->country == "albania") selected @endif>Albania</option>
+<option value="algeria" @if(isset($applicantExp) && $applicantExp->country == "algeria") selected @endif>Algeria</option>
+<option value="andorra" @if(isset($applicantExp) && $applicantExp->country == "andorra") selected @endif>Andorra</option>
+<option value="angola" @if(isset($applicantExp) && $applicantExp->country == "angola") selected @endif>Angola</option>
+<option value="antigua_and_barbuda" @if(isset($applicantExp) && $applicantExp->country == "antigua_and_barbuda") selected @endif>Antigua and Barbuda</option>
+<option value="argentina" @if(isset($applicantExp) && $applicantExp->country == "argentina") selected @endif>Argentina</option>
+<option value="armenia" @if(isset($applicantExp) && $applicantExp->country == "armenia") selected @endif>Armenia</option>
+<option value="australia" @if(isset($applicantExp) && $applicantExp->country == "australia") selected @endif>Australia</option>
+<option value="austria" @if(isset($applicantExp) && $applicantExp->country == "austria") selected @endif>Austria</option>
+<option value="azerbaijan" @if(isset($applicantExp) && $applicantExp->country == "azerbaijan") selected @endif>Azerbaijan</option>
+<option value="bahamas" @if(isset($applicantExp) && $applicantExp->country == "bahamas") selected @endif>Bahamas</option>
+<option value="bahrain" @if(isset($applicantExp) && $applicantExp->country == "bahrain") selected @endif>Bahrain</option>
+<option value="bangladesh" @if(isset($applicantExp) && $applicantExp->country == "bangladesh") selected @endif>Bangladesh</option>
+<option value="barbados" @if(isset($applicantExp) && $applicantExp->country == "barbados") selected @endif>Barbados</option>
+<option value="belarus" @if(isset($applicantExp) && $applicantExp->country == "belarus") selected @endif>Belarus</option>
+<option value="belgium" @if(isset($applicantExp) && $applicantExp->country == "belgium") selected @endif>Belgium</option>
+<option value="belize" @if(isset($applicantExp) && $applicantExp->country == "belize") selected @endif>Belize</option>
+<option value="benin" @if(isset($applicantExp) && $applicantExp->country == "benin") selected @endif>Benin</option>
+<option value="bhutan" @if(isset($applicantExp) && $applicantExp->country == "bhutan") selected @endif>Bhutan</option>
+<option value="bolivia" @if(isset($applicantExp) && $applicantExp->country == "bolivia") selected @endif>Bolivia</option>
+<option value="bosnia_and_herzegovina" @if(isset($applicantExp) && $applicantExp->country == "bosnia_and_herzegovina") selected @endif>Bosnia and Herzegovina</option>
+<option value="botswana" @if(isset($applicantExp) && $applicantExp->country == "botswana") selected @endif>Botswana</option>
+<option value="brazil" @if(isset($applicantExp) && $applicantExp->country == "brazil") selected @endif>Brazil</option>
+<option value="brunei" @if(isset($applicantExp) && $applicantExp->country == "brunei") selected @endif>Brunei</option>
+<option value="bulgaria" @if(isset($applicantExp) && $applicantExp->country == "bulgaria") selected @endif>Bulgaria</option>
+<option value="burkina_faso" @if(isset($applicantExp) && $applicantExp->country == "burkina_faso") selected @endif>Burkina Faso</option>
+<option value="burundi" @if(isset($applicantExp) && $applicantExp->country == "burundi") selected @endif>Burundi</option>
+<option value="cabo_verde" @if(isset($applicantExp) && $applicantExp->country == "cabo_verde") selected @endif>Cabo Verde</option>
+<option value="cambodia" @if(isset($applicantExp) && $applicantExp->country == "cambodia") selected @endif>Cambodia</option>
+<option value="cameroon" @if(isset($applicantExp) && $applicantExp->country == "cameroon") selected @endif>Cameroon</option>
+<option value="canada" @if(isset($applicantExp) && $applicantExp->country == "canada") selected @endif>Canada</option>
+<option value="central_african_republic" @if(isset($applicantExp) && $applicantExp->country == "central_african_republic") selected @endif>Central African Republic</option>
+<option value="chad" @if(isset($applicantExp) && $applicantExp->country == "chad") selected @endif>Chad</option>
+<option value="chile" @if(isset($applicantExp) && $applicantExp->country == "chile") selected @endif>Chile</option>
+<option value="china" @if(isset($applicantExp) && $applicantExp->country == "china") selected @endif>China</option>
+<option value="colombia" @if(isset($applicantExp) && $applicantExp->country == "colombia") selected @endif>Colombia</option>
+<option value="comoros" @if(isset($applicantExp) && $applicantExp->country == "comoros") selected @endif>Comoros</option>
+<option value="congo" @if(isset($applicantExp) && $applicantExp->country == "congo") selected @endif>Congo</option>
+<option value="costa_rica" @if(isset($applicantExp) && $applicantExp->country == "costa_rica") selected @endif>Costa Rica</option>
+<option value="croatia" @if(isset($applicantExp) && $applicantExp->country == "croatia") selected @endif>Croatia</option>
+<option value="cuba" @if(isset($applicantExp) && $applicantExp->country == "cuba") selected @endif>Cuba</option>
+<option value="cyprus" @if(isset($applicantExp) && $applicantExp->country == "cyprus") selected @endif>Cyprus</option>
+<option value="czech_republic" @if(isset($applicantExp) && $applicantExp->country == "czech_republic") selected @endif>Czech Republic</option>
+<option value="democratic_republic_of_the_congo" @if(isset($applicantExp) && $applicantExp->country == "democratic_republic_of_the_congo") selected @endif>Democratic Republic of the Congo</option>
+<option value="denmark" @if(isset($applicantExp) && $applicantExp->country == "denmark") selected @endif>Denmark</option>
+<option value="djibouti" @if(isset($applicantExp) && $applicantExp->country == "djibouti") selected @endif>Djibouti</option>
+<option value="dominica" @if(isset($applicantExp) && $applicantExp->country == "dominica") selected @endif>Dominica</option>
+<option value="dominican_republic" @if(isset($applicantExp) && $applicantExp->country == "dominican_republic") selected @endif>Dominican Republic</option>
+<option value="ecuador" @if(isset($applicantExp) && $applicantExp->country == "ecuador") selected @endif>Ecuador</option>
+<option value="egypt" @if(isset($applicantExp) && $applicantExp->country == "egypt") selected @endif>Egypt</option>
+<option value="el_salvador" @if(isset($applicantExp) && $applicantExp->country == "el_salvador") selected @endif>El Salvador</option>
+<option value="equatorial_guinea" @if(isset($applicantExp) && $applicantExp->country == "equatorial_guinea") selected @endif>Equatorial Guinea</option>
+<option value="eritrea" @if(isset($applicantExp) && $applicantExp->country == "eritrea") selected @endif>Eritrea</option>
+<option value="estonia" @if(isset($applicantExp) && $applicantExp->country == "estonia") selected @endif>Estonia</option>
+<option value="eswatini" @if(isset($applicantExp) && $applicantExp->country == "eswatini") selected @endif>Eswatini</option>
+<option value="ethiopia" @if(isset($applicantExp) && $applicantExp->country == "ethiopia") selected @endif>Ethiopia</option>
+<option value="fiji" @if(isset($applicantExp) && $applicantExp->country == "fiji") selected @endif>Fiji</option>
+<option value="finland" @if(isset($applicantExp) && $applicantExp->country == "finland") selected @endif>Finland</option>
+<option value="france" @if(isset($applicantExp) && $applicantExp->country == "france") selected @endif>France</option>
+<option value="gabon" @if(isset($applicantExp) && $applicantExp->country == "gabon") selected @endif>Gabon</option>
+<option value="gambia" @if(isset($applicantExp) && $applicantExp->country == "gambia") selected @endif>Gambia</option>
+<option value="georgia" @if(isset($applicantExp) && $applicantExp->country == "georgia") selected @endif>Georgia</option>
+<option value="germany" @if(isset($applicantExp) && $applicantExp->country == "germany") selected @endif>Germany</option>
+<option value="ghana" @if(isset($applicantExp) && $applicantExp->country == "ghana") selected @endif>Ghana</option>
+<option value="greece" @if(isset($applicantExp) && $applicantExp->country == "greece") selected @endif>Greece</option>
+<option value="grenada" @if(isset($applicantExp) && $applicantExp->country == "grenada") selected @endif>Grenada</option>
+<option value="guatemala" @if(isset($applicantExp) && $applicantExp->country == "guatemala") selected @endif>Guatemala</option>
+<option value="guinea" @if(isset($applicantExp) && $applicantExp->country == "guinea") selected @endif>Guinea</option>
+<option value="guinea_bissau" @if(isset($applicantExp) && $applicantExp->country == "guinea_bissau") selected @endif>Guinea-Bissau</option>
+<option value="guyana" @if(isset($applicantExp) && $applicantExp->country == "guyana") selected @endif>Guyana</option>
+<option value="haiti" @if(isset($applicantExp) && $applicantExp->country == "haiti") selected @endif>Haiti</option>
+<option value="honduras" @if(isset($applicantExp) && $applicantExp->country == "honduras") selected @endif>Honduras</option>
+<option value="hungary" @if(isset($applicantExp) && $applicantExp->country == "hungary") selected @endif>Hungary</option>
+<option value="iceland" @if(isset($applicantExp) && $applicantExp->country == "iceland") selected @endif>Iceland</option>
+<option value="india" @if(isset($applicantExp) && $applicantExp->country == "india") selected @endif>India</option>
+<option value="indonesia" @if(isset($applicantExp) && $applicantExp->country == "indonesia") selected @endif>Indonesia</option>
+<option value="iran" @if(isset($applicantExp) && $applicantExp->country == "iran") selected @endif>Iran</option>
+<option value="iraq" @if(isset($applicantExp) && $applicantExp->country == "iraq") selected @endif>Iraq</option>
+<option value="ireland" @if(isset($applicantExp) && $applicantExp->country == "ireland") selected @endif>Ireland</option>
+<option value="israel" @if(isset($applicantExp) && $applicantExp->country == "israel") selected @endif>Israel</option>
+<option value="italy" @if(isset($applicantExp) && $applicantExp->country == "italy") selected @endif>Italy</option>
+<option value="jamaica" @if(isset($applicantExp) && $applicantExp->country == "jamaica") selected @endif>Jamaica</option>
+<option value="japan" @if(isset($applicantExp) && $applicantExp->country == "japan") selected @endif>Japan</option>
+<option value="jordan" @if(isset($applicantExp) && $applicantExp->country == "jordan") selected @endif>Jordan</option>
+<option value="kazakhstan" @if(isset($applicantExp) && $applicantExp->country == "kazakhstan") selected @endif>Kazakhstan</option>
+<option value="kenya" @if(isset($applicantExp) && $applicantExp->country == "kenya") selected @endif>Kenya</option>
+<option value="kiribati" @if(isset($applicantExp) && $applicantExp->country == "kiribati") selected @endif>Kiribati</option>
+<option value="north_korea" @if(isset($applicantExp) && $applicantExp->country == "north_korea") selected @endif>North Korea</option>
+<option value="south_korea" @if(isset($applicantExp) && $applicantExp->country == "south_korea") selected @endif>South Korea</option>
+<option value="kosovo" @if(isset($applicantExp) && $applicantExp->country == "kosovo") selected @endif>Kosovo</option>
+<option value="kuwait" @if(isset($applicantExp) && $applicantExp->country == "kuwait") selected @endif>Kuwait</option>
+<option value="kyrgyzstan" @if(isset($applicantExp) && $applicantExp->country == "kyrgyzstan") selected @endif>Kyrgyzstan</option>
+<option value="laos" @if(isset($applicantExp) && $applicantExp->country == "laos") selected @endif>Laos</option>
+<option value="latvia" @if(isset($applicantExp) && $applicantExp->country == "latvia") selected @endif>Latvia</option>
+<option value="lebanon" @if(isset($applicantExp) && $applicantExp->country == "lebanon") selected @endif>Lebanon</option>
+<option value="lesotho" @if(isset($applicantExp) && $applicantExp->country == "lesotho") selected @endif>Lesotho</option>
+<option value="liberia" @if(isset($applicantExp) && $applicantExp->country == "liberia") selected @endif>Liberia</option>
+<option value="libya" @if(isset($applicantExp) && $applicantExp->country == "libya") selected @endif>Libya</option>
+<option value="liechtenstein" @if(isset($applicantExp) && $applicantExp->country == "liechtenstein") selected @endif>Liechtenstein</option>
+<option value="lithuania" @if(isset($applicantExp) && $applicantExp->country == "lithuania") selected @endif>Lithuania</option>
+<option value="luxembourg" @if(isset($applicantExp) && $applicantExp->country == "luxembourg") selected @endif>Luxembourg</option>
+<option value="madagascar" @if(isset($applicantExp) && $applicantExp->country == "madagascar") selected @endif>Madagascar</option>
+<option value="malawi" @if(isset($applicantExp) && $applicantExp->country == "malawi") selected @endif>Malawi</option>
+<option value="malaysia" @if(isset($applicantExp) && $applicantExp->country == "malaysia") selected @endif>Malaysia</option>
+<option value="maldives" @if(isset($applicantExp) && $applicantExp->country == "maldives") selected @endif>Maldives</option>
+<option value="mali" @if(isset($applicantExp) && $applicantExp->country == "mali") selected @endif>Mali</option>
+<option value="malta" @if(isset($applicantExp) && $applicantExp->country == "malta") selected @endif>Malta</option>
+<option value="marshall_islands" @if(isset($applicantExp) && $applicantExp->country == "marshall_islands") selected @endif>Marshall Islands</option>
+<option value="mauritania" @if(isset($applicantExp) && $applicantExp->country == "mauritania") selected @endif>Mauritania</option>
+<option value="mauritius" @if(isset($applicantExp) && $applicantExp->country == "mauritius") selected @endif>Mauritius</option>
+<option value="mexico" @if(isset($applicantExp) && $applicantExp->country == "mexico") selected @endif>Mexico</option>
+<option value="micronesia" @if(isset($applicantExp) && $applicantExp->country == "micronesia") selected @endif>Micronesia</option>
+<option value="moldova" @if(isset($applicantExp) && $applicantExp->country == "moldova") selected @endif>Moldova</option>
+<option value="monaco" @if(isset($applicantExp) && $applicantExp->country == "monaco") selected @endif>Monaco</option>
+<option value="mongolia" @if(isset($applicantExp) && $applicantExp->country == "mongolia") selected @endif>Mongolia</option>
+<option value="montenegro" @if(isset($applicantExp) && $applicantExp->country == "montenegro") selected @endif>Montenegro</option>
+<option value="morocco" @if(isset($applicantExp) && $applicantExp->country == "morocco") selected @endif>Morocco</option>
+<option value="mozambique" @if(isset($applicantExp) && $applicantExp->country == "mozambique") selected @endif>Mozambique</option>
+<option value="myanmar" @if(isset($applicantExp) && $applicantExp->country == "myanmar") selected @endif>Myanmar</option>
+<option value="namibia" @if(isset($applicantExp) && $applicantExp->country == "namibia") selected @endif>Namibia</option>
+<option value="nauru" @if(isset($applicantExp) && $applicantExp->country == "nauru") selected @endif>Nauru</option>
+<option value="nepal" @if(isset($applicantExp) && $applicantExp->country == "nepal") selected @endif>Nepal</option>
+<option value="netherlands" @if(isset($applicantExp) && $applicantExp->country == "netherlands") selected @endif>Netherlands</option>
+<option value="new_zealand" @if(isset($applicantExp) && $applicantExp->country == "new_zealand") selected @endif>New Zealand</option>
+<option value="nicaragua" @if(isset($applicantExp) && $applicantExp->country == "nicaragua") selected @endif>Nicaragua</option>
+<option value="niger" @if(isset($applicantExp) && $applicantExp->country == "niger") selected @endif>Niger</option>
+<option value="nigeria" @if(isset($applicantExp) && $applicantExp->country == "nigeria") selected @endif>Nigeria</option>
+<option value="north_macedonia" @if(isset($applicantExp) && $applicantExp->country == "north_macedonia") selected @endif>North Macedonia</option>
+<option value="norway" @if(isset($applicantExp) && $applicantExp->country == "norway") selected @endif>Norway</option>
+<option value="oman" @if(isset($applicantExp) && $applicantExp->country == "oman") selected @endif>Oman</option>
+<option value="pakistan" @if(isset($applicantExp) && $applicantExp->country == "pakistan") selected @endif>Pakistan</option>
+<option value="palau" @if(isset($applicantExp) && $applicantExp->country == "palau") selected @endif>Palau</option>
+<option value="palestine" @if(isset($applicantExp) && $applicantExp->country == "palestine") selected @endif>Palestine</option>
+<option value="panama" @if(isset($applicantExp) && $applicantExp->country == "panama") selected @endif>Panama</option>
+<option value="papua_new_guinea" @if(isset($applicantExp) && $applicantExp->country == "papua_new_guinea") selected @endif>Papua New Guinea</option>
+<option value="paraguay" @if(isset($applicantExp) && $applicantExp->country == "paraguay") selected @endif>Paraguay</option>
+<option value="peru" @if(isset($applicantExp) && $applicantExp->country == "peru") selected @endif>Peru</option>
+<option value="philippines" @if(isset($applicantExp) && $applicantExp->country == "philippines") selected @endif>Philippines</option>
+<option value="poland" @if(isset($applicantExp) && $applicantExp->country == "poland") selected @endif>Poland</option>
+<option value="portugal" @if(isset($applicantExp) && $applicantExp->country == "portugal") selected @endif>Portugal</option>
+<option value="qatar" @if(isset($applicantExp) && $applicantExp->country == "qatar") selected @endif>Qatar</option>
+<option value="romania" @if(isset($applicantExp) && $applicantExp->country == "romania") selected @endif>Romania</option>
+<option value="russia" @if(isset($applicantExp) && $applicantExp->country == "russia") selected @endif>Russia</option>
+<option value="rwanda" @if(isset($applicantExp) && $applicantExp->country == "rwanda") selected @endif>Rwanda</option>
+<option value="saint_kitts_and_nevis" @if(isset($applicantExp) && $applicantExp->country == "saint_kitts_and_nevis") selected @endif>Saint Kitts and Nevis</option>
+<option value="saint_lucia" @if(isset($applicantExp) && $applicantExp->country == "saint_lucia") selected @endif>Saint Lucia</option>
+<option value="saint_vincent_and_the_grenadines" @if(isset($applicantExp) && $applicantExp->country == "saint_vincent_and_the_grenadines") selected @endif>Saint Vincent and the Grenadines</option>
+<option value="samoa" @if(isset($applicantExp) && $applicantExp->country == "samoa") selected @endif>Samoa</option>
+<option value="san_marino" @if(isset($applicantExp) && $applicantExp->country == "san_marino") selected @endif>San Marino</option>
+<option value="sao_tome_and_principe" @if(isset($applicantExp) && $applicantExp->country == "sao_tome_and_principe") selected @endif>Sao Tome and Principe</option>
+<option value="saudi_arabia" @if(isset($applicantExp) && $applicantExp->country == "saudi_arabia") selected @endif>Saudi Arabia</option>
+<option value="senegal" @if(isset($applicantExp) && $applicantExp->country == "senegal") selected @endif>Senegal</option>
+<option value="serbia" @if(isset($applicantExp) && $applicantExp->country == "serbia") selected @endif>Serbia</option>
+<option value="seychelles" @if(isset($applicantExp) && $applicantExp->country == "seychelles") selected @endif>Seychelles</option>
+<option value="sierra_leone" @if(isset($applicantExp) && $applicantExp->country == "sierra_leone") selected @endif>Sierra Leone</option>
+<option value="singapore" @if(isset($applicantExp) && $applicantExp->country == "singapore") selected @endif>Singapore</option>
+<option value="slovakia" @if(isset($applicantExp) && $applicantExp->country == "slovakia") selected @endif>Slovakia</option>
+<option value="slovenia" @if(isset($applicantExp) && $applicantExp->country == "slovenia") selected @endif>Slovenia</option>
+<option value="solomon_islands" @if(isset($applicantExp) && $applicantExp->country == "solomon_islands") selected @endif>Solomon Islands</option>
+<option value="somalia" @if(isset($applicantExp) && $applicantExp->country == "somalia") selected @endif>Somalia</option>
+<option value="south_africa" @if(isset($applicantExp) && $applicantExp->country == "south_africa") selected @endif>South Africa</option>
+<option value="south_sudan" @if(isset($applicantExp) && $applicantExp->country == "south_sudan") selected @endif>South Sudan</option>
+<option value="spain" @if(isset($applicantExp) && $applicantExp->country == "spain") selected @endif>Spain</option>
+<option value="sri_lanka" @if(isset($applicantExp) && $applicantExp->country == "sri_lanka") selected @endif>Sri Lanka</option>
+<option value="sudan" @if(isset($applicantExp) && $applicantExp->country == "sudan") selected @endif>Sudan</option>
+<option value="suriname" @if(isset($applicantExp) && $applicantExp->country == "suriname") selected @endif>Suriname</option>
+<option value="sweden" @if(isset($applicantExp) && $applicantExp->country == "sweden") selected @endif>Sweden</option>
+<option value="switzerland" @if(isset($applicantExp) && $applicantExp->country == "switzerland") selected @endif>Switzerland</option>
+<option value="syria" @if(isset($applicantExp) && $applicantExp->country == "syria") selected @endif>Syria</option>
+<option value="taiwan" @if(isset($applicantExp) && $applicantExp->country == "taiwan") selected @endif>Taiwan</option>
+<option value="tajikistan" @if(isset($applicantExp) && $applicantExp->country == "tajikistan") selected @endif>Tajikistan</option>
+<option value="tanzania" @if(isset($applicantExp) && $applicantExp->country == "tanzania") selected @endif>Tanzania</option>
+<option value="thailand" @if(isset($applicantExp) && $applicantExp->country == "thailand") selected @endif>Thailand</option>
+<option value="togo" @if(isset($applicantExp) && $applicantExp->country == "togo") selected @endif>Togo</option>
+<option value="tonga" @if(isset($applicantExp) && $applicantExp->country == "tonga") selected @endif>Tonga</option>
+<option value="trinidad_and_tobago" @if(isset($applicantExp) && $applicantExp->country == "trinidad_and_tobago") selected @endif>Trinidad and Tobago</option>
+<option value="tunisia" @if(isset($applicantExp) && $applicantExp->country == "tunisia") selected @endif>Tunisia</option>
+<option value="turkey" @if(isset($applicantExp) && $applicantExp->country == "turkey") selected @endif>Turkey</option>
+<option value="turkmenistan" @if(isset($applicantExp) && $applicantExp->country == "turkmenistan") selected @endif>Turkmenistan</option>
+<option value="tuvalu" @if(isset($applicantExp) && $applicantExp->country == "tuvalu") selected @endif>Tuvalu</option>
+<option value="uganda" @if(isset($applicantExp) && $applicantExp->country == "uganda") selected @endif>Uganda</option>
+<option value="ukraine" @if(isset($applicantExp) && $applicantExp->country == "ukraine") selected @endif>Ukraine</option>
+<option value="united_arab_emirates" @if(isset($applicantExp) && $applicantExp->country == "united_arab_emirates") selected @endif>United Arab Emirates</option>
+<option value="united_kingdom" @if(isset($applicantExp) && $applicantExp->country == "united_kingdom") selected @endif>United Kingdom</option>
+<option value="united_states" @if(isset($applicantExp) && $applicantExp->country == "united_states") selected @endif>United States</option>
+<option value="uruguay" @if(isset($applicantExp) && $applicantExp->country == "uruguay") selected @endif>Uruguay</option>
+<option value="uzbekistan" @if(isset($applicantExp) && $applicantExp->country == "uzbekistan") selected @endif>Uzbekistan</option>
+<option value="vanuatu" @if(isset($applicantExp) && $applicantExp->country == "vanuatu") selected @endif>Vanuatu</option>
+<option value="venezuela" @if(isset($applicantExp) && $applicantExp->country == "venezuela") selected @endif>Venezuela</option>
+<option value="vietnam" @if(isset($applicantExp) && $applicantExp->country == "vietnam") selected @endif>Vietnam</option>
+<option value="yemen" @if(isset($applicantExp) && $applicantExp->country == "yemen") selected @endif>Yemen</option>
+<option value="zambia" @if(isset($applicantExp) && $applicantExp->country == "zambia") selected @endif>Zambia</option>
+<option value="zimbabwe" @if(isset($applicantExp) && $applicantExp->country == "zimbabwe") selected @endif>Zimbabwe</option>
                   </select>
                 </div>
                 <div class="col-sm-6 mb-4">
                   <label class="form-label" for="pr-city">City</label>
-                  <select class="form-select form-select-lg" id="pr-city">
-                    <option value="" disabled selected>Choose city</option>
-                    <option value="Beijing">Beijing</option>
-                    <option value="Berlin">Berlin</option>
-                    <option value="Brussels">Brussels</option>
-                    <option value="Copenhagen">Copenhagen</option>
-                    <option value="London">London</option>
-                    <option value="Ottawa">Ottawa</option>
-                    <option value="Paris">Paris</option>
-                    <option value="Sydney">Sydney</option>
-                    <option value="Tokyo">Tokyo</option>
-                    <option value="Washington">Washington</option>
-                  </select>
+                  <input class="form-control form-control-lg mb-4" type="text" id="pr-title" placeholder="Enter your city" name="city" value="@if(isset($applicantExp)){{$applicantExp->city}}@endif" required>
                 </div>
                 <div class="col-lg-6 mb-4">
                   <label class="form-label" for="pr-period-from">Time period from <span class='text-danger'>*</span></label>
                   <div class="row gx-2 gx-sm-3">
                     <div class="col-7 col-sm-8">
-                      <select class="form-select form-select-lg" id="pr-period-from" required>
+                      <select name="worked_from_month" class="form-select form-select-lg" id="pr-period-from" required>
                         <option value="" disabled selected>Month</option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        <option value="January" @if(isset($applicantExp) && $applicantExp->worked_from_month =="January") selected @endif>January</option>
+                        <option value="February" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="February") selected @endif>February</option>
+                        <option value="March" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="March") selected @endif>March</option>
+                        <option value="April" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="April") selected @endif>April</option>
+                        <option value="May" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="May") selected @endif>May</option>
+                        <option value="June" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="June") selected @endif>June</option>
+                        <option value="July" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="July") selected @endif>July</option>
+                        <option value="August" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="August") selected @endif>August</option>
+                        <option value="September"@if(isset($applicantExp) && $applicantExp->worked_from_month  =="September") selected @endif>September</option>
+                        <option value="October" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="October") selected @endif>October</option>
+                        <option value="November" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="November") selected @endif>November</option>
+                        <option value="December" @if(isset($applicantExp) && $applicantExp->worked_from_month  =="December") selected @endif>December</option>
                       </select>
                     </div>
                     <div class="col-5 col-sm-4">
-                      <select class="form-select form-select-lg" required>
+                      <select name="worked_from_year" class="form-select form-select-lg" required>
                         <option value="" disabled selected>Year</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2026") selected @endif @endif>2026</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2025") selected @endif @endif>2025</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2024") selected @endif @endif>2024</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2023") selected @endif @endif>2023</option>
+                        <option value="2022" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2022") selected @endif @endif>2022</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2021") selected @endif @endif>2021</option>
+                        <option value="2020" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2020") selected @endif @endif>2020</option>
+                        <option value="2019" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2019") selected @endif @endif>2019</option>
+                        <option value="2018" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2018") selected @endif @endif>2018</option>
+                        <option value="2017" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2017") selected @endif @endif>2017</option>
+                        <option value="2016" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2016") selected @endif @endif>2016</option>
+                        <option value="2015" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2015") selected @endif @endif>2015</option>
+                        <option value="2014" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2014") selected @endif @endif>2014</option>
+                        <option value="2013" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2013") selected @endif @endif>2013</option>
+                        <option value="2012" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2012") selected @endif @endif>2012</option>
+                        <option value="2011" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2011") selected @endif @endif>2011</option>
+                        <option value="2010" @if(isset($applicantExp)) @if($applicantExp->worked_from_year  =="2010") selected @endif @endif>2010</option>
                       </select>
                     </div>
                   </div>
@@ -147,58 +319,60 @@
                   <label class="form-label" for="pr-period-to">To <span class='text-danger'>*</span></label>
                   <div class="row gx-2 gx-sm-3">
                     <div class="col-7 col-sm-8">
-                      <select class="form-select form-select-lg" id="pr-period-to" required>
+                      <select name="worked_to_month" class="form-select form-select-lg" id="pr-period-to" required>
                         <option value="" disabled selected>Month</option>
-                        <option value="January">January</option>
-                        <option value="February">February</option>
-                        <option value="March">March</option>
-                        <option value="April">April</option>
-                        <option value="May">May</option>
-                        <option value="June">June</option>
-                        <option value="July">July</option>
-                        <option value="August">August</option>
-                        <option value="September">September</option>
-                        <option value="October">October</option>
-                        <option value="November">November</option>
-                        <option value="December">December</option>
+                        <option value="January" @if(isset($applicantExp) && $applicantExp->worked_to_month =="January") selected @endif>January</option>
+                        <option value="February" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="February") selected @endif>February</option>
+                        <option value="March" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="March") selected @endif>March</option>
+                        <option value="April" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="April") selected @endif>April</option>
+                        <option value="May" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="May") selected @endif>May</option>
+                        <option value="June" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="June") selected @endif>June</option>
+                        <option value="July" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="July") selected @endif>July</option>
+                        <option value="August" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="August") selected @endif>August</option>
+                        <option value="September"@if(isset($applicantExp) && $applicantExp->worked_to_month  =="September") selected @endif>September</option>
+                        <option value="October" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="October") selected @endif>October</option>
+                        <option value="November" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="November") selected @endif>November</option>
+                        <option value="December" @if(isset($applicantExp) && $applicantExp->worked_to_month  =="December") selected @endif>December</option>
                       </select>
                     </div>
                     <div class="col-5 col-sm-4">
-                      <select class="form-select form-select-lg" required>
+                      <select name="worked_to_year" class="form-select form-select-lg" required>
                         <option value="" disabled selected>Year</option>
-                        <option value="2021">2021</option>
-                        <option value="2020">2020</option>
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                        <option value="2015">2015</option>
-                        <option value="2014">2014</option>
-                        <option value="2013">2013</option>
-                        <option value="2012">2012</option>
-                        <option value="2011">2011</option>
-                        <option value="2010">2010</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2026") selected @endif @endif>2026</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2025") selected @endif @endif>2025</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2024") selected @endif @endif>2024</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2023") selected @endif @endif>2023</option>
+                        <option value="2022" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2022") selected @endif @endif>2022</option>
+                        <option value="2021" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2021") selected @endif @endif>2021</option>
+                        <option value="2020" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2020") selected @endif @endif>2020</option>
+                        <option value="2019" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2019") selected @endif @endif>2019</option>
+                        <option value="2018" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2018") selected @endif @endif>2018</option>
+                        <option value="2017" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2017") selected @endif @endif>2017</option>
+                        <option value="2016" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2016") selected @endif @endif>2016</option>
+                        <option value="2015" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2015") selected @endif @endif>2015</option>
+                        <option value="2014" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2014") selected @endif @endif>2014</option>
+                        <option value="2013" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2013") selected @endif @endif>2013</option>
+                        <option value="2012" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2012") selected @endif @endif>2012</option>
+                        <option value="2011" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2011") selected @endif @endif>2011</option>
+                        <option value="2010" @if(isset($applicantExp)) @if($applicantExp->worked_to_year  =="2010") selected @endif @endif>2010</option>
                       </select>
                     </div>
                   </div>
                 </div>
               </div>
-              <div class="form-check mb-4">
-                <input class="form-check-input" type="checkbox" id="still-work">
-                <label class="form-check-label" for="still-work">I currently work here</label>
-              </div>
+            
               <div class="mb-4">
                 <label class="form-label" for="pr-description">Description</label>
-                <textarea class="form-control" rows="5" id="pr-description" placeholder="Describe your position and any significant accomplishments"></textarea>
-                <div class="form-text pt-1">8,000 characters left</div>
+                <textarea name="job_description" id="myTextarea" class="form-control" rows="5" id="pr-description" placeholder="Describe your position and any significant accomplishments">@if(isset($applicantExp)){{$applicantExp->job_description}}@endif</textarea>
+                <div id="charCount" class="char-count">500 characters left</div>
               </div>
-              <button class="btn btn-link btn-lg text-primary py-2 px-0 mb-md-n2" type="button"><i class="fi-plus fs-sm me-2"></i>Add experience</button>
             </div>
             <!-- Navigation-->
-            <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"><a class="btn btn-outline-primary btn-lg rounded-pill mb-3 mb-sm-0" href="job-board-post-resume-2.html"><i class="fi-chevron-left fs-sm me-2"></i>Previous step</a><a class="btn btn-primary btn-lg rounded-pill ms-sm-auto" href="job-board-post-resume-4.html">Next step<i class="fi-chevron-right fs-sm ms-2"></i></a></div>
+            <div class="d-flex flex-column flex-sm-row bg-light rounded-3 p-4 px-md-5"><a class="btn btn-outline-primary btn-lg rounded-pill mb-3 mb-sm-0" href="upload-education"><i class="fi-chevron-left fs-sm me-2"></i>Previous step</a><button class="btn btn-primary btn-lg rounded-pill ms-sm-auto" >Next step<i class="fi-chevron-right fs-sm ms-2"></i></button></div>
           </div>
         </div>
-      </div>
+      </div>   
+      </form>
     </main>
     <!-- Footer-->
     <footer class="footer bg-dark pt-5">
@@ -262,9 +436,44 @@
     <!-- Main theme script-->
     <script src="js/theme.min.js"></script>
   </body>
-
-<!-- Mirrored from finder.createx.studio/job-board-post-resume-3.html by HTTrack Website Copier/3.x [XR&CO'2014], Wed, 15 May 2024 20:24:57 GMT -->
 </html>
 
 
 
+
+
+
+
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+    const textarea = document.getElementById('myTextarea');
+    const charCount = document.getElementById('charCount');
+    const maxChars = 500;
+
+    textarea.addEventListener('input', () => {
+        if (textarea.value.length > maxChars) {
+            textarea.value = textarea.value.substring(0, maxChars);
+        }
+
+        const remainingChars = maxChars - textarea.value.length;
+        charCount.textContent = `${remainingChars} characters left`;
+
+        if (remainingChars < 0) {
+            charCount.classList.add('char-limit-exceeded');
+        } else {
+            charCount.classList.remove('char-limit-exceeded');
+        }
+    });
+
+    // Prevent form submission if character limit is exceeded
+    const form = document.getElementById('myForm');
+    form.addEventListener('submit', (event) => {
+        if (textarea.value.length > maxChars) {
+            event.preventDefault();
+            alert('Character limit exceeded. Please shorten your input.');
+        }
+    });
+});
+
+</script>

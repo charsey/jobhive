@@ -192,8 +192,15 @@
           <!-- Account header-->
           <div class="d-flex align-items-start justify-content-between pb-4 mb-2">
             <div class="d-flex align-items-start">
-              <div class="position-relative flex-shrink-0"><img class="rounded-circle" src="../assets/img/avatars/37.png" width="100" alt="{{$user->name}} ">
-                <button class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm position-absolute end-0 bottom-0" type="button" data-bs-toggle="tooltip" title="Change image"><i class="fi-pencil fs-xs"></i></button>
+              <div class="position-relative flex-shrink-0"><img class="rounded-circle" src="../assets/img/avatars/37.png" id="preview" width="100" alt="{{$user->name}} ">
+                <button id="activateButton" class="btn btn-icon btn-light btn-xs rounded-circle shadow-sm position-absolute end-0 bottom-0" type="button" data-bs-toggle="tooltip" title="Change image"><i class="fi-pencil fs-xs"></i></button>
+
+
+               
+      
+        <input id="targetButton" style="display:none" type="file" name="display_img" id="picture" required onchange="previewImage(event)">
+
+
               </div>
               <div class="ps-3 ps-sm-4">
                 <h3 class="h5">{{$user->name}} </h3>
@@ -259,7 +266,7 @@ Oops! Your new password and confirmation don't match. Give it another go
 
 
 
-          <form method="POST" action="save-changes">
+          <form method="POST" action="save-changes" enctype="multipart/form-data">
             @csrf
           <!-- Account menu--><a class="btn btn-outline-primary btn-lg rounded-pill w-100 d-md-none" href="#account-nav" data-bs-toggle="collapse"><i class="fi-align-justify me-2"></i>Account Menu</a>
           <div class="collapse d-md-block" id="account-nav">
@@ -429,7 +436,7 @@ Oops! Your new password and confirmation don't match. Give it another go
                     <div data-bs-toggle="tooltip" title="Edit"><a class="nav-link py-0" href="#type-collapse" data-bs-toggle="collapse"><i class="fi-edit"></i></a></div>
                   </div>
                   <div class="collapse" id="type-collapse" data-bs-parent="#account-settings">
-                    <select class="form-select mt-3" data-bs-binded-element="#type-value">
+                    <select name="account_type" class="form-select mt-3" data-bs-binded-element="#type-value">
                       <option value="" disabled>Select account type</option>
                       <option value="Employer (looking for an employee)" @if($user->account_type =="employer") selected @endif>Employer (looking for an employee)</option>
                       <option value="Job seeker" selected>Job seeker (looking for a job)</option>
@@ -528,18 +535,6 @@ Oops! Your new password and confirmation don't match. Give it another go
 
 
 
-    
-        @csrf
-        <label for="picture">Choose a picture:</label>
-        <input type="file" name="picture" id="picture" required onchange="previewImage(event)">
-        <br>
-        <img id="preview" src="#" alt="Image preview" style="display:none;"/>
-        <br>
-        <button type="submit">Upload</button>
-
-
-
-
 
     <script>
         function previewImage(event) {
@@ -556,3 +551,13 @@ Oops! Your new password and confirmation don't match. Give it another go
   </body>
   
 </html>
+<script>
+        // JavaScript to handle button activation
+        document.getElementById('activateButton').addEventListener('click', function() {
+            document.getElementById('targetButton').click();
+        });
+
+        // Optional: Action to perform when the target button is clicked
+        document.getElementById('targetButton').addEventListener('click', function() {
+        });
+    </script>

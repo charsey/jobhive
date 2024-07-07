@@ -5,12 +5,16 @@ use Illuminate\Http\RedirectResponse;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\User;
+use App\Models\profile_picture;
 use App\Models\ApplicantsInfo;
  
 class ProfileController extends Controller
 {
    
     public function profile (Request $req)
+
+
+
     {
     $user_id = auth()->user()->id;
     $info= User::where('id', $user_id)->first();
@@ -30,6 +34,7 @@ class ProfileController extends Controller
                 $enteredPassword = $req->pass1; // The password entered by the user
 $storedHashedPassword = $user->password; // The hashed password stored in the database
 
+
 if (password_verify($enteredPassword, $storedHashedPassword)) {
     if($passn==$passc){
         $password=password_hash($passn, PASSWORD_DEFAULT);
@@ -38,7 +43,9 @@ if (password_verify($enteredPassword, $storedHashedPassword)) {
         $user->lname= $req->lname;
         $user->gender= $req->gender;
         $user->email= $req->email;
-        $user->password= $password;   
+        $user->password= $password; 
+        $user->account_type= $req->account_type;
+
         $user->save();
         $req->session()->flash('saved','saved details');
         return redirect('profile-settings');
@@ -59,6 +66,8 @@ if (password_verify($enteredPassword, $storedHashedPassword)) {
                 $user->lname= $req->lname;
                 $user->gender= $req->gender;
                 $user->email= $req->email;
+                 $user->account_type= $req->account_type;
+
                 $user->save();
                 $message="saved";
                 $req->session()->flash('status', $message);

@@ -6,6 +6,7 @@ use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use App\Models\ApplicantsInfo;
 use App\Models\ApplicantsEducation;
+use App\Models\ApplicantsExperience;
 class IndexController extends Controller
 {
     public function index(Request $request)
@@ -31,13 +32,13 @@ public function applicants_edu (Request $req){
     return view('applicants/upload-resume2');
 }
 }
- public function applicants_skills (Request $req){
+ public function applicants_experience (Request $req){
     $user_id = auth()->user()->id;
-    // if(ApplicantsEducation::where('user_id', $user_id)){
-    //     $applicantEdu = ApplicantsEducation::where('user_id', $user_id)->first();
-    //     return view('applicants/upload-resume3', compact('applicantEdu'));
-    //     } else {
+    if(ApplicantsExperience::where('user_id', $user_id)){
+        $applicantExp = ApplicantsExperience::where('user_id', $user_id)->first();
+        return view('applicants/upload-resume3', compact('applicantExp'));
+        } else {
         return view('applicants/upload-resume3');
-    // }
+    }
  }
 }

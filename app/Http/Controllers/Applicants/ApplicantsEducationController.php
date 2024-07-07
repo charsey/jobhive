@@ -26,11 +26,11 @@ class ApplicantsEducationController extends Controller
             $applicants_edu->studied_to_month = $req->studied_to_month;
             $applicants_edu->studied_to_year = $req->studied_to_year;
             $applicants_edu->save();
-            return redirect('upload-skills');
+            return redirect('work-experience');
     
         }else{
 
-            return redirect('upload-resume');
+            return redirect('work-experience');
                
     }
 
