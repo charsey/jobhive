@@ -24,10 +24,6 @@
                   <div class="step-label">Experience</div>
                 </div>
                 <div class="step">
-                  <div class="step-progress"><span class="step-progress-start"></span><span class="step-progress-end"></span><span class="step-number">4</span></div>
-                  <div class="step-label">Skills</div>
-                </div>
-                <div class="step">
                   <div class="step-progress"><span class="step-progress-start"></span><span class="step-progress-end"></span><span class="step-number">5</span></div>
                   <div class="step-label">Review</div>
                 </div>

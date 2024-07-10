@@ -7,6 +7,7 @@ use App\Http\Controllers\IndexController;
 use App\Http\Controllers\Applicants\ApplicantsInfoController;
 use App\Http\Controllers\Applicants\ApplicantsEducationController;
 use App\Http\Controllers\Applicants\ApplicantsExperienceController;
+use App\Http\Controllers\Applicants\ApplicantsSkillsController;
 use App\Http\Controllers\Profile\ProfileController;
 use App\Http\Controllers\LogoutController;
 
@@ -24,8 +25,11 @@ Route::post('step1', [ApplicantsInfoController::class, 'saveone']);
 // Applicantsexperience
 Route::POST('step3',[ApplicantsExperienceController::class,'save']);
 // Applicantsexperience end
+// Applicantsexperience
+Route::get('review',[IndexController::class,'reviews']);
+// Applicantsexperience end
 // logout
-Route::post('logout', [LogoutController::class, 'logout'])->name('logout');
+Route::post('logout', [LogoutController::class,'logout'])->name('logout');
 // endlogout
 // profile edit
 Route::post('save-changes',[ProfileController::class, 'save_changes']);

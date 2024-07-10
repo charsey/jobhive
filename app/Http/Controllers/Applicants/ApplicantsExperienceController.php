@@ -4,6 +4,7 @@ namespace App\Http\Controllers\Applicants;
 use App\Models\ApplicantsExperience;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Http\RedirectResponse;
 
 class ApplicantsExperienceController extends Controller
 {
@@ -25,7 +26,7 @@ class ApplicantsExperienceController extends Controller
             $applicantsExp->job_description = $req->job_description;
             $applicantsExp->user_id = $user_id;   
             $applicantsExp->save();
-            return redirect('upload_skills');
+            return redirect ('review');
         }else{
 
 
@@ -42,7 +43,8 @@ class ApplicantsExperienceController extends Controller
         $applicantsExp->job_description = $req->job_description;
         $applicantsExp->user_id = $user_id;   
         $applicantsExp->save();
-        return redirect('upload_skills');
+         return redirect('review');
+         
         
     }
 }

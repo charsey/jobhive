@@ -41,4 +41,11 @@ public function applicants_edu (Request $req){
         return view('applicants/upload-resume3');
     }
  }
+
+ public function reviews (Request $req){
+
+        return view('applicants/upload-resume4');
+    
+ }
+
 }

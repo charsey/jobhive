@@ -1,13 +1,7 @@
 @include('applicants.header.nav')
 
 <div class="container mt-5 mb-md-4 py-5">
-        <!-- Breadcrumb-->
-        <nav class="mb-3 mb-md-4 pt-md-3" aria-label="Breadcrumb">
-          <ol class="breadcrumb">
-            <li class="breadcrumb-item"><a href="job-board-home-v1.html">Home</a></li>
-            <li class="breadcrumb-item active" aria-current="page">Post resume</li>
-          </ol>
-        </nav>
+
         <!-- Page content-->
         <div class="row justify-content-center pb-sm-2">
           <div class="col-lg-11 col-xl-10">
@@ -30,10 +24,6 @@
                 </div>
                 <div class="step">
                   <div class="step-progress"><span class="step-progress-start"></span><span class="step-progress-end"></span><span class="step-number">4</span></div>
-                  <div class="step-label">Skills</div>
-                </div>
-                <div class="step">
-                  <div class="step-progress"><span class="step-progress-start"></span><span class="step-progress-end"></span><span class="step-number">5</span></div>
                   <div class="step-label">Review</div>
                 </div>
               </div>
